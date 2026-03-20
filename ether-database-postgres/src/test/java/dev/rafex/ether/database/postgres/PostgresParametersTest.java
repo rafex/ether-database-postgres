@@ -7,12 +7,14 @@ import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 
+import dev.rafex.ether.database.postgres.sql.PostgresParameters;
+
 class PostgresParametersTest {
 
-	@Test
-	void shouldCreateJsonbAndArrayParameters() {
-		assertEquals(Types.OTHER, PostgresParameters.jsonb("{}").sqlType());
-		assertEquals("text", PostgresParameters.textArray("a", "b").arrayElementType());
-		assertEquals("uuid", PostgresParameters.uuidArray(UUID.randomUUID()).arrayElementType());
-	}
+    @Test
+    void shouldCreateJsonbAndArrayParameters() {
+        assertEquals(Types.OTHER, PostgresParameters.jsonb("{}").sqlType());
+        assertEquals("text", PostgresParameters.textArray("a", "b").arrayElementType());
+        assertEquals("uuid", PostgresParameters.uuidArray(UUID.randomUUID()).arrayElementType());
+    }
 }
